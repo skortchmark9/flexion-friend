@@ -1,1 +1,101 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0, user-scalable=no"><style>body{margin:0}#stats{position:absolute;height:200px;bottom:0;right:0;z-index:10}#pause{font-size:40px;padding:20px 60px;margin:20px}.dg.ac{z-index:11!important}#main{margin:0}#canvas-wrapper,#main,#scatter-gl-container{position:relative}#scatter-gl-container{display:none}</style></head><body> <div id="stats"> <button id="pause">Pause</button> </div> <div id="main"> <div class="container"> <div class="canvas-wrapper"> <canvas id="output"></canvas> <video id="video" playsinline="" style="-webkit-transform:scaleX(-1);transform:scaleX(-1);display:none;width:auto;height:auto;"> </video> </div> <div id="scatter-gl-container"></div> </div> </div> </body><script src="https://docs.opencv.org/master/opencv.js" async></script><script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r16/Stats.min.js"></script><script src="src.cecedce2.js"></script></html>
+<!-- Copyright 2021 Google LLC. All Rights Reserved.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+==============================================================================-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0, user-scalable=no">
+  <style>body {
+      margin: 0;
+    }
+    #stats {
+      position: absolute;
+      height: 200px;
+      bottom: 0;
+      right: 0;
+      z-index: 10;
+    }
+
+    #pause {
+      font-size: 40px;
+      padding: 20px 60px;
+      margin: 20px;
+    }
+
+    .dg.a {
+      margin-right: 0 !important;
+    }
+
+    .dg.ac {
+      z-index: 11 !important;
+    }
+
+    #main {
+      position: relative;
+      margin: 0;
+    }
+
+    .canvas-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    @media screen and (orientation:portrait) {
+      .canvas-wrapper {
+        width: 100%;
+      }
+    }
+    @media screen and (orientation:landscape) {
+      .canvas-wrapper {
+        width: 66%;
+      }
+    }
+
+    canvas#output {
+      width: 100%;
+      transform: rotateY(180deg);
+    }
+
+    #scatter-gl-container {
+      position: relative;
+    }
+
+    #scatter-gl-container {
+      display: none;
+    }</style>
+</head>
+<body>
+  <div id="stats">
+    <button id="pause">Pause</button>
+  </div>
+  <div id="main">
+    <div class="container">
+      <div class="canvas-wrapper">
+        <canvas id="output"></canvas>
+        <video id="video" playsinline="" style="
+          -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+          display: none;
+          width: auto;
+          height: auto;
+          ">
+        </video>
+      </div>
+      <div id="scatter-gl-container"></div>
+    </div>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r16/Stats.min.js"></script>
+<script src="/src.a2b27638.js"></script>
+
+</html>
