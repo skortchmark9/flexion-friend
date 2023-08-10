@@ -1,1 +1,434 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Flexion Friend</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0, user-scalable=no,viewport-fit=cover"><style>body,html{margin:0;height:100%}body{--ff-padding-small:10px;--ff-padding-medium:20px;--ff-padding-large:40px;--ff-background-color:#fff}h1,h2,h3,h4,h5,h6,p{margin:0}*{box-sizing:border-box}#stats{position:absolute;height:200px;bottom:0;right:0;z-index:10}#pause{font-size:40px;padding:20px 60px;margin:20px}.dg.a{margin-right:0!important}.dg.ac{display:none;z-index:11!important}#main{height:100%;position:relative;margin:0;display:grid;grid-template-columns:auto 360px;grid-template-rows:auto auto}.controls{display:grid;gap:.5em;grid-template-columns:1fr 1fr 1fr;grid-auto-rows:min-content;padding:var(--ff-padding-small);text-align:center;justify-items:center}.controls output{padding:.5em}.canvas-wrapper{background:#333;border-radius:1em solid #999}.canvas-wrapper #preview-image{visibility:hidden}.canvas-wrapper.viewing-snapshot #preview-image{visibility:visible}.canvas-wrapper.viewing-snapshot canvas{visibility:hidden}.canvas-wrapper.viewing-snapshot #flip-camera{display:none}.canvas-wrapper{position:relative;overflow:hidden}#preview-image{height:100%;width:100%;object-fit:contain}#intro-placeholder,#preview-image{position:absolute;top:0;left:0}.has-video #flip-camera{display:block}#flip-camera{display:none;position:absolute;color:#eee;top:0;right:0;height:50px;width:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;margin:var(--ff-padding-small);backdrop-filter:blur(5px) brightness(80%);-webkit-backdrop-filter:blur(5px) brightness(90%);background:none;box-shadow:0 2px 1px rgba(0,0,0,.3411764705882353);border:none}#flip-camera svg{height:80%;width:80%;fill:#f0f0f0}#intro-placeholder{width:100%;padding:var(--ff-padding-large);background:var(--ff-background-color)}.fadeout{transition:transform .3s cubic-bezier(.445,.05,.55,.95);transform:translateX(-100%)}@media screen and (orientation:portrait){#main{grid-template-columns:1fr;grid-template-rows:1fr min-content}.canvas-wrapper{position:relative;grid-row:span 2}}@media screen and (orientation:landscape){.canvas-wrapper{grid-row:span 2}}#scatter-gl-container{position:relative;display:none}.snap-button{--snap-button-color:#eee;--snap-button-inside-ring-color:#adadad;color:#434343;cursor:pointer;width:100px;text-align:center;position:relative;padding:20px;border-radius:25px;background:none;outline:none;border:4px solid var(--snap-button-color,red);box-shadow:inset 0 0 0 2px var(--snap-button-inside-ring-color,#fff);background:var(--snap-button-color,red);transition:all .4s cubic-bezier(.075,.82,.165,1)}.snap-button:hover{--snap-button-color:#efefef;color:#202020}.snap-button:disabled{--snap-button-color:#dedede;--snap-button-inside-ring-color:rgb(198 198 198);color:#959595;cursor:unset}#buttons,#numbers{display:contents}#numbers>label{padding:.5em}#history{display:flex;flex-direction:column;gap:4px;padding:var(--ff-padding-small)}.hidden{opacity:0}form{padding:1em 2em}form>div+div{margin:2em 0 0}.side-selector{display:flex;--checked-color:#767676;--unchecked-color:#767676}.side-selector [type=checkbox]{position:absolute;top:auto;overflow:hidden;clip:rect(1px,1px,1px,1px);width:1px;height:1px;white-space:nowrap}.side-selector [type=checkbox]+label{display:block;position:relative;padding:.5em .5em .5em 3em;max-width:calc(100% - 2em)}.side-selector label{display:inline-block;padding:.5em}.side-selector label:hover{text-decoration:underline}.side-selector [type=checkbox]:focus+label:before,.side-selector [type=checkbox]:hover+label:before{box-shadow:0 0 .1em #333}.side-selector [type=checkbox]:focus+label:after,.side-selector [type=checkbox]:hover+label:after{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='50' fill='rgba(0,0,0,.25)'/%3E%3C/svg%3E");background-size:30%;background-repeat:no-repeat;background-position:50%}.side-selector [type=checkbox]+label:after,.side-selector [type=checkbox]+label:before{content:"";position:absolute;height:1.5em;transition:all .25s ease}.side-selector [type=checkbox]+label:before{left:0;top:.2em;width:3em;border:.2em solid var(--unchecked-color);background:var(--unchecked-color);border-radius:1.1em}.side-selector [type=checkbox]+label:after{left:0;top:.25em;background-color:#fff;background-position:50%;border-radius:50%;width:1.5em;border:.15em solid var(--unchecked-color)}.side-selector [type=checkbox]:checked+label:after{left:1.6em;border-color:var(--checked-color);color:var(--checked-color)}.side-selector [type=checkbox]:indeterminate+label:after{left:.8em}.side-selector [type=checkbox]:indeterminate+label:before{background-color:#ddd}.side-selector [type=checkbox]:checked+label:before{background-color:var(--checked-color);border-color:var(--checked-color)}.side-selector [type=checkbox][disabled]+label:before{background-color:transparent;border-color:#ddd}.side-selector [type=checkbox][disabled]+label:after{border-color:#ddd}.side-selector [disabled]:hover+label{color:#999}.side-selector [type=checkbox][disabled]:hover+label:before{box-shadow:none}.side-selector [type=checkbox][disabled]:hover+label:after{background-image:none}@media screen and (prefers-reduced-motion:reduce){.side-selector [type=checkbox]+label:after,.side-selector [type=checkbox]+label:before{transition:none}}</style></head><body> <div id="stats"> </div> <div id="main"> <div class="canvas-wrapper"> <canvas id="output"></canvas> <button id="flip-camera"> <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M480-233q85 0 141.5-62T683-443l38 38 36-35-100-99-99 99 36 35 40-40q-6 66-48.5 114T480-283q-14 0-27.5-2t-25.5-8l-37 36q20 12 43 18t47 6ZM305-334l99-99-36-35-40 40q6-66 48.5-114T482-590q14 0 27.5 2t25.5 8l37-36q-20-12-43-18t-47-6q-85 0-141.5 62T279-430l-38-38-36 35 100 99ZM140-120q-24 0-42-18t-18-42v-513q0-23 18-41.5t42-18.5h147l73-87h240l73 87h147q23 0 41.5 18.5T880-693v513q0 24-18.5 42T820-120H140Zm0-60h680v-513H645l-73-87H388l-73 87H140v513Zm340-257Z"></path></svg> </button> <img id="preview-image"> <section id="intro-placeholder"> <header> <h3>Flexion Friend</h3> </header> <p>Let's see that knee bend, friend! I'll use <a target="_blank" href="https://www.tensorflow.org/hub/tutorials/movenet">Movenet</a> to record your best angles.</p> </section> <video id="video" playsinline="" style="-webkit-transform:scaleX(-1);transform:scaleX(-1);display:none;width:auto;height:auto;"> </video> </div> <div class="controls"> <section id="numbers"> <label id="knee-selection-label">Side</label> <label id="output-angle-label" for="output-angle">Flexion</label> <label for="output-confidence">Confidence</label> <div class="side-selector"> <label id="toggle-l" for="side-selector-checkbox">L</label> <input type="checkbox" name="side-selector-checkbox" id="side-selector-checkbox"> <label for="side-selector-checkbox"></label> <label id="toggle-r" for="side-selector-checkbox">R</label> </div> <output id="output-angle">--</output> <output id="output-confidence">--</output> </section> <section id="buttons"> <button class="snap-button" id="save" disabled>Save</button> <button class="snap-button" id="snap">Freeze</button> <button class="snap-button" id="delayed-snap">In 5s</button> </section> </div> <div id="history"> </div> </div> </body><script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r16/Stats.min.js"></script><script src="src.0ff2215b.js"></script></html>
+<!-- Copyright 2021 Google LLC. All Rights Reserved.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+==============================================================================-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Flexion Friend</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0, user-scalable=no,viewport-fit=cover">
+  <style>body, html {
+      margin: 0;
+      height: 100%;
+    }
+
+    body {
+      --ff-padding-small: 10px;
+      --ff-padding-medium: 20px;
+      --ff-padding-large: 40px;
+      --ff-background-color: white;
+
+      /* font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; */
+
+    }
+
+    p, h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    #stats {
+      position: absolute;
+      height: 200px;
+      bottom: 0;
+      right: 0;
+      z-index: 10;
+    }
+
+    #pause {
+      font-size: 40px;
+      padding: 20px 60px;
+      margin: 20px;
+    }
+
+    .dg.a {
+      margin-right: 0 !important;
+    }
+
+    .dg.ac {
+      display: none;
+      z-index: 11 !important;
+    }
+
+    #main {
+      height: 100%;
+      position: relative;
+      margin: 0;
+      display: grid;
+      grid-template-columns: auto 360px;
+      grid-template-rows: auto auto;
+    }
+
+    .controls {
+      display: grid;
+      gap: 0.5em;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-auto-rows: min-content;
+      padding: var(--ff-padding-small);
+      text-align: center;
+      justify-items: center;
+    }
+
+    .controls output {
+      padding: 0.5em;
+    }
+
+    .canvas-wrapper {
+      background: #333;
+      display: flex;
+      align-items: center;
+    }
+
+    .canvas-wrapper #preview-image {
+      visibility: hidden;
+    }
+    .canvas-wrapper.viewing-snapshot #preview-image {
+      visibility: visible;
+    }
+
+    .canvas-wrapper.viewing-snapshot canvas {
+      visibility: hidden;
+    }
+
+    .canvas-wrapper.viewing-snapshot #flip-camera {
+      display: none;
+    }
+
+    .canvas-wrapper {
+        position: relative;
+        overflow: hidden;
+    }
+
+    #preview-image {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    #preview-image,
+    #intro-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .has-video #flip-camera {
+      display: block;
+    }
+
+    #flip-camera {
+      display: none;
+      position: absolute;
+      color: #eee;
+      top: 0;
+      right: 0;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: var(--ff-padding-small);
+      backdrop-filter: blur(5px) brightness(80%);
+      -webkit-backdrop-filter: blur(5px) brightness(90%);
+      background: none;
+      box-shadow: 0 2px 1px #00000057;
+      border: none;
+    }
+
+    #flip-camera svg {
+      height: 80%;
+      width: 80%;
+      fill: #f0f0f0;
+    }
+
+    #intro-placeholder {
+      width: 100%;
+      padding: var(--ff-padding-large);
+      background: var(--ff-background-color);
+    }
+
+    .fadeout {
+      transition: transform 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      transform: translateX(-100%);
+    }
+
+
+    @media screen and (orientation:portrait) {
+      #main {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr min-content;
+      }
+
+      .canvas-wrapper {
+        position: relative;
+        grid-row: span 2;
+      }
+    }
+    @media screen and (orientation:landscape) {
+      .canvas-wrapper {
+        grid-row: span 2;
+      }
+    }
+
+    #scatter-gl-container {
+      position: relative;
+    }
+
+    #scatter-gl-container {
+      display: none;
+    }
+
+    .snap-button {
+      --snap-button-color: #eee;
+      --snap-button-inside-ring-color: rgb(173, 173, 173);
+      color: #434343;
+      cursor: pointer;
+      width: 100px;
+      text-align: center;
+      position: relative;
+      padding: 20px;
+      border-radius: 25px;
+      background: none;
+      outline: none;
+      border: 4px solid var(--snap-button-color, red);
+      box-shadow: inset 0 0 0 2px var(--snap-button-inside-ring-color, white);
+      background: var(--snap-button-color, red);
+      transition: all .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .snap-button:hover {
+      --snap-button-color: #efefef;
+      color: #202020;
+    }
+
+    .snap-button:disabled {
+      --snap-button-color: #dedede;
+      --snap-button-inside-ring-color: rgb(198 198 198);
+      color: #959595;
+      cursor: unset;
+    }
+
+    #buttons,
+    #numbers {
+      display: contents;
+    }
+
+    #numbers > label {
+      padding: 0.5em;
+    }
+
+    #history {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: var(--ff-padding-small);
+    }
+
+    .hidden {
+      opacity: 0;
+    }
+
+    /* Begin Fancy Side Selector */
+    form {
+      padding: 1em 2em;
+    }
+
+    form > div + div {
+      margin: 2em 0 0 0;
+    }
+
+    .side-selector {
+      display: flex;
+      --checked-color: #767676;
+      --unchecked-color: #767676;
+    }
+
+    .side-selector [type="checkbox"] {
+      position: absolute;
+      top: auto;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      width: 1px;
+      height: 1px;
+      white-space: nowrap;
+    }
+
+    .side-selector [type="checkbox"] + label {
+      display: block;
+      position: relative;
+      padding: 0.5em;
+      padding-left: 3em;
+      max-width: calc(100% - 2em);
+    }
+
+    .side-selector label {
+      display: inline-block;
+      padding: 0.5em;
+    }
+
+    .side-selector label:hover {
+      text-decoration: underline;
+    }
+
+    .side-selector [type="checkbox"]:focus + label::before,
+    .side-selector [type="checkbox"]:hover + label::before {
+      box-shadow: 0 0 0.1em #333;
+    }
+    .side-selector [type="checkbox"]:focus + label::after,
+    .side-selector [type="checkbox"]:hover + label::after {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='50' fill='rgba(0,0,0,.25)'/%3E%3C/svg%3E");
+      background-size: 30%;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .side-selector [type="checkbox"] + label::before {
+      content: "";
+      position: absolute;
+      height: 1.5em;
+      transition: all 0.25s ease;
+    }
+
+    .side-selector [type="checkbox"] + label::after {
+      content: "";
+      position: absolute;
+      height: 1.5em;
+      transition: all 0.25s ease;
+    }
+
+    .side-selector [type="checkbox"] + label::before {
+      left: 0;
+      top: 0.2em;
+      width: 3em;
+      border: 0.2em solid var(--unchecked-color);
+      background: var(--unchecked-color);
+      border-radius: 1.1em;
+    }
+
+    .side-selector [type="checkbox"] + label::after {
+      left: 0;
+      top: 0.25em;
+      background-color: #fff;
+      background-position: center center;
+      border-radius: 50%;
+      width: 1.5em;
+      border: 0.15em solid var(--unchecked-color);
+    }
+
+    .side-selector [type="checkbox"]:checked + label::after {
+      left: 1.6em;
+      border-color: var(--checked-color);
+      color: var(--checked-color);
+    }
+
+    .side-selector [type="checkbox"]:indeterminate + label::after {
+      left: 0.8em;
+    }
+
+    .side-selector [type="checkbox"]:indeterminate + label::before {
+      background-color: #ddd;
+    }
+
+    .side-selector [type="checkbox"]:checked + label::before {
+      background-color: var(--checked-color);
+      border-color: var(--checked-color);
+    }
+
+    .side-selector [type="checkbox"][disabled] + label::before {
+      background-color: transparent;
+      border-color: #ddd;
+    }
+
+    .side-selector [type="checkbox"][disabled] + label::after {
+      border-color: #ddd;
+    }
+
+    .side-selector [disabled]:hover + label {
+      color: #999; /* case for CSS custom property if not supporting IE/Edge */
+    }
+
+    .side-selector [type="checkbox"][disabled]:hover + label::before {
+      box-shadow: none;
+    }
+
+    .side-selector [type="checkbox"][disabled]:hover + label::after {
+      background-image: none;
+    }
+
+    /* Reduced motion */
+    @media screen and (prefers-reduced-motion: reduce) {
+      .side-selector [type="checkbox"] + label::before,
+      .side-selector [type="checkbox"] + label::after {
+        transition: none;
+      }
+    }
+
+    /* End Fancy Side Selector */</style>
+</head>
+<body>
+  <div id="stats">
+  </div>
+  <div id="main">
+    <div class="canvas-wrapper">
+      <canvas id="output"></canvas>
+      <button id="flip-camera">
+        <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M480-233q85 0 141.5-62T683-443l38 38 36-35-100-99-99 99 36 35 40-40q-6 66-48.5 114T480-283q-14 0-27.5-2t-25.5-8l-37 36q20 12 43 18t47 6ZM305-334l99-99-36-35-40 40q6-66 48.5-114T482-590q14 0 27.5 2t25.5 8l37-36q-20-12-43-18t-47-6q-85 0-141.5 62T279-430l-38-38-36 35 100 99ZM140-120q-24 0-42-18t-18-42v-513q0-23 18-41.5t42-18.5h147l73-87h240l73 87h147q23 0 41.5 18.5T880-693v513q0 24-18.5 42T820-120H140Zm0-60h680v-513H645l-73-87H388l-73 87H140v513Zm340-257Z"></path></svg>
+      </button>
+      <img id="preview-image">
+      <section id="intro-placeholder">
+        <header>
+          <h3>Flexion Friend</h3>
+        </header>
+        <p>Let's see that knee bend, friend! I'll use <a target="_blank" href="https://www.tensorflow.org/hub/tutorials/movenet">Movenet</a> to record your best angles.</p>
+      </section>
+      <video id="video" playsinline="" style="
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        display: none;
+        width: auto;
+        height: auto;
+        ">
+      </video>
+    </div>
+    <div class="controls">
+      <section id="numbers">
+          <label id="knee-selection-label">Side</label>
+          <label id="output-angle-label" for="output-angle">Flexion</label>
+          <label for="output-confidence">Confidence</label>
+          <div class="side-selector">
+            <label id="toggle-l" for="side-selector-checkbox">L</label>
+            <input type="checkbox" name="side-selector-checkbox" id="side-selector-checkbox">
+            <label for="side-selector-checkbox"></label>
+            <label id="toggle-r" for="side-selector-checkbox">R</label>
+          </div>
+          <output id="output-angle">--</output>
+          <output id="output-confidence">--</output>
+      </section>
+      <section id="buttons">
+        <button class="snap-button" id="save" disabled="">Save</button>
+        <button class="snap-button" id="snap">Freeze</button>
+        <button class="snap-button" id="delayed-snap">In 5s</button>
+      </section>
+    </div>
+    <div id="history">
+    </div>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r16/Stats.min.js"></script>
+<script src="/src.a2b27638.js"></script>
+
+</html>
