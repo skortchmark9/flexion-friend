@@ -1,8 +1,17 @@
 {
   "name": "Flexion Friend",
-  "short_name": "FF",
   "description": "Let's see that knee bend, friend!",
   "theme_color": "#222222",
+  "icons": [
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "icon-scalable.svg",
+      "sizes": "any"
+    }
+  ],
   "background_color": "#222222",
   "orientation": "landscape",
   "display": "fullscreen"
