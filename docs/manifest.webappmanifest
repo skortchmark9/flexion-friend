@@ -3,121 +3,121 @@
   "description": "Let's see that knee bend, friend!",
   "theme_color": "#222222",
   "icons": [
-        {
-      "src": "icon-16.png",
+    {
+      "src": "icons/icon-16.png",
       "sizes": "16x16"
     },
     {
-      "src": "icon-20.png",
+      "src": "icons/icon-20.png",
       "sizes": "20x20"
     },
     {
-      "src": "icon-29.png",
+      "src": "icons/icon-29.png",
       "sizes": "29x29"
     },
     {
-      "src": "icon-32.png",
+      "src": "icons/icon-32.png",
       "sizes": "32x32"
     },
     {
-      "src": "icon-40.png",
+      "src": "icons/icon-40.png",
       "sizes": "40x40"
     },
     {
-      "src": "icon-50.png",
+      "src": "icons/icon-50.png",
       "sizes": "50x50"
     },
     {
-      "src": "icon-57.png",
+      "src": "icons/icon-57.png",
       "sizes": "57x57"
     },
     {
-      "src": "icon-58.png",
+      "src": "icons/icon-58.png",
       "sizes": "58x58"
     },
     {
-      "src": "icon-60.png",
+      "src": "icons/icon-60.png",
       "sizes": "60x60"
     },
     {
-      "src": "icon-64.png",
+      "src": "icons/icon-64.png",
       "sizes": "64x64"
     },
     {
-      "src": "icon-72.png",
+      "src": "icons/icon-72.png",
       "sizes": "72x72"
     },
     {
-      "src": "icon-76.png",
+      "src": "icons/icon-76.png",
       "sizes": "76x76"
     },
     {
-      "src": "icon-80.png",
+      "src": "icons/icon-80.png",
       "sizes": "80x80"
     },
     {
-      "src": "icon-87.png",
+      "src": "icons/icon-87.png",
       "sizes": "87x87"
     },
     {
-      "src": "icon-100.png",
+      "src": "icons/icon-100.png",
       "sizes": "100x100"
     },
     {
-      "src": "icon-114.png",
+      "src": "icons/icon-114.png",
       "sizes": "114x114"
     },
     {
-      "src": "icon-120.png",
+      "src": "icons/icon-120.png",
       "sizes": "120x120"
     },
     {
-      "src": "icon-128.png",
+      "src": "icons/icon-128.png",
       "sizes": "128x128"
     },
     {
-      "src": "icon-144.png",
+      "src": "icons/icon-144.png",
       "sizes": "144x144"
     },
     {
-      "src": "icon-152.png",
+      "src": "icons/icon-152.png",
       "sizes": "152x152"
     },
     {
-      "src": "icon-167.png",
+      "src": "icons/icon-167.png",
       "sizes": "167x167"
     },
     {
-      "src": "icon-180.png",
+      "src": "icons/icon-180.png",
       "sizes": "180x180"
     },
     {
-      "src": "icon-192.png",
+      "src": "icons/icon-192.png",
       "sizes": "192x192"
     },
     {
-      "src": "icon-256.png",
+      "src": "icons/icon-256.png",
       "sizes": "256x256"
     },
     {
-      "src": "icon-512.png",
+      "src": "icons/icon-512.png",
       "sizes": "512x512"
     },
     {
-      "src": "icon-1024.png",
+      "src": "icons/icon-1024.png",
       "sizes": "1024x1024"
     },
     {
-      "src": "icon-scalable.svg",
+      "src": "icons/icon-scalable.svg",
       "sizes": "72x72 96x96",
       "purpose": "maskable"
     },
     {
-      "src": "icon-scalable.svg",
+      "src": "icons/icon-scalable.svg",
       "sizes": "128x128 256x256"
     },
     {
-      "src": "icon-scalable.svg",
+      "src": "icons/icon-scalable.svg",
       "sizes": "any"
     }
   ],
