@@ -4,120 +4,120 @@
   "theme_color": "#222222",
   "icons": [
     {
-      "src": "icons/icon-16.png",
+      "src": "icons/16.png",
       "sizes": "16x16"
     },
     {
-      "src": "icons/icon-20.png",
+      "src": "icons/20.png",
       "sizes": "20x20"
     },
     {
-      "src": "icons/icon-29.png",
+      "src": "icons/29.png",
       "sizes": "29x29"
     },
     {
-      "src": "icons/icon-32.png",
+      "src": "icons/32.png",
       "sizes": "32x32"
     },
     {
-      "src": "icons/icon-40.png",
+      "src": "icons/40.png",
       "sizes": "40x40"
     },
     {
-      "src": "icons/icon-50.png",
+      "src": "icons/50.png",
       "sizes": "50x50"
     },
     {
-      "src": "icons/icon-57.png",
+      "src": "icons/57.png",
       "sizes": "57x57"
     },
     {
-      "src": "icons/icon-58.png",
+      "src": "icons/58.png",
       "sizes": "58x58"
     },
     {
-      "src": "icons/icon-60.png",
+      "src": "icons/60.png",
       "sizes": "60x60"
     },
     {
-      "src": "icons/icon-64.png",
+      "src": "icons/64.png",
       "sizes": "64x64"
     },
     {
-      "src": "icons/icon-72.png",
+      "src": "icons/72.png",
       "sizes": "72x72"
     },
     {
-      "src": "icons/icon-76.png",
+      "src": "icons/76.png",
       "sizes": "76x76"
     },
     {
-      "src": "icons/icon-80.png",
+      "src": "icons/80.png",
       "sizes": "80x80"
     },
     {
-      "src": "icons/icon-87.png",
+      "src": "icons/87.png",
       "sizes": "87x87"
     },
     {
-      "src": "icons/icon-100.png",
+      "src": "icons/100.png",
       "sizes": "100x100"
     },
     {
-      "src": "icons/icon-114.png",
+      "src": "icons/114.png",
       "sizes": "114x114"
     },
     {
-      "src": "icons/icon-120.png",
+      "src": "icons/120.png",
       "sizes": "120x120"
     },
     {
-      "src": "icons/icon-128.png",
+      "src": "icons/128.png",
       "sizes": "128x128"
     },
     {
-      "src": "icons/icon-144.png",
+      "src": "icons/144.png",
       "sizes": "144x144"
     },
     {
-      "src": "icons/icon-152.png",
+      "src": "icons/152.png",
       "sizes": "152x152"
     },
     {
-      "src": "icons/icon-167.png",
+      "src": "icons/167.png",
       "sizes": "167x167"
     },
     {
-      "src": "icons/icon-180.png",
+      "src": "icons/180.png",
       "sizes": "180x180"
     },
     {
-      "src": "icons/icon-192.png",
+      "src": "icons/192.png",
       "sizes": "192x192"
     },
     {
-      "src": "icons/icon-256.png",
+      "src": "icons/256.png",
       "sizes": "256x256"
     },
     {
-      "src": "icons/icon-512.png",
+      "src": "icons/512.png",
       "sizes": "512x512"
     },
     {
-      "src": "icons/icon-1024.png",
+      "src": "icons/1024.png",
       "sizes": "1024x1024"
     },
     {
-      "src": "icons/icon-scalable.svg",
+      "src": "icons/scalable.svg",
       "sizes": "72x72 96x96",
       "purpose": "maskable"
     },
     {
-      "src": "icons/icon-scalable.svg",
+      "src": "icons/scalable.svg",
       "sizes": "128x128 256x256"
     },
     {
-      "src": "icons/icon-scalable.svg",
+      "src": "icons/scalable.svg",
       "sizes": "any"
     }
   ],
