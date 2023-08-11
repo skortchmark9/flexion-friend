@@ -3,136 +3,16 @@
   "description": "Let's see that knee bend, friend!",
   "theme_color": "#222222",
   "icons": [
-    {
-      "src": "icons/16.png",
-      "sizes": "16x16",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/20.png",
-      "sizes": "20x20",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/29.png",
-      "sizes": "29x29",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/32.png",
-      "sizes": "32x32",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/40.png",
-      "sizes": "40x40",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/50.png",
-      "sizes": "50x50",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/57.png",
-      "sizes": "57x57",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/58.png",
-      "sizes": "58x58",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/60.png",
-      "sizes": "60x60",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/64.png",
-      "sizes": "64x64",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/72.png",
-      "sizes": "72x72",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/76.png",
-      "sizes": "76x76",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/80.png",
-      "sizes": "80x80",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/87.png",
-      "sizes": "87x87",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/100.png",
-      "sizes": "100x100",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/114.png",
-      "sizes": "114x114",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/120.png",
-      "sizes": "120x120",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/128.png",
-      "sizes": "128x128",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/144.png",
-      "sizes": "144x144",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/152.png",
-      "sizes": "152x152",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/167.png",
-      "sizes": "167x167",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/180.png",
-      "sizes": "180x180",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/192.png",
-      "sizes": "192x192",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/256.png",
-      "sizes": "256x256",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/512.png",
-      "sizes": "512x512",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/1024.png",
-      "sizes": "1024x1024",
-      "purpose": "any"
-    },
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
   ],
   "background_color": "#222222",
   "orientation": "landscape",
