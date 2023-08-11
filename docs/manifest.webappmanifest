@@ -1,0 +1,9 @@
+{
+  "name": "Flexion Friend",
+  "short_name": "FF",
+  "description": "Let's see that knee bend, friend!",
+  "theme_color": "#222222",
+  "background_color": "#222222",
+  "orientation": "landscape",
+  "display": "standalone"
+}
