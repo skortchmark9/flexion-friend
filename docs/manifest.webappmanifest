@@ -107,19 +107,6 @@
       "src": "icons/1024.png",
       "sizes": "1024x1024"
     },
-    {
-      "src": "icons/scalable.svg",
-      "sizes": "72x72 96x96",
-      "purpose": "maskable"
-    },
-    {
-      "src": "icons/scalable.svg",
-      "sizes": "128x128 256x256"
-    },
-    {
-      "src": "icons/scalable.svg",
-      "sizes": "any"
-    }
   ],
   "background_color": "#222222",
   "orientation": "landscape",
