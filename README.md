@@ -1,6 +1,6 @@
 # Flexion Friend
 
-_Let's see that knee bend, friend!_
+[_Let's see that knee bend, friend!_](https://skortchmark9.github.io/flexion-friend/)
 
 ![Screenshot of the app](screenshot.png)
 
