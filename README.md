@@ -11,3 +11,6 @@ The app uses your device's camera and a machine learning model to detect your kn
 
 ### How do I make it fullscreen?
 Flexion Friend is a PWA! So, you just need to "add to homescreen" to make it fullscreen. Hit Share -> Add to Home Screen. When you open it from there, it should be fullscreen.
+
+### Where is the source?
+I didn't want to deal with reorganizing the build step, so I did all the development [here](https://github.com/skortchmark9/tfjs-models/tree/flexion-friend/pose-detection/demos/live_video) and then copy the dist folder into this repo for hosting. Forgive me...
